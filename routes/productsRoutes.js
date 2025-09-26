@@ -1,13 +1,21 @@
-// routes/productsRoutes.js
+
 const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/productsController');
 
-// Define the routes
-// GET /api/products (Read all, with optional query filters)
+// Read all products
 router.get('/', productsController.getAllProducts);
 
-// GET /api/products/:id (Read a single product using a path parameter)
+// Read a single product
 router.get('/:id', productsController.getSingleProduct);
+
+// Create a new product
+router.post('/', productsController.createProduct);
+
+// Update an existing product
+router.put('/:id', productsController.updateProduct);
+
+// Delete a product
+router.delete('/:id', productsController.deleteProduct);
 
 module.exports = router;
